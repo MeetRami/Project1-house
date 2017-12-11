@@ -11,10 +11,16 @@
  */
 public class Picture
 {
-    private Square wall;
-    private Square window;
-    private Triangle roof;
-    private Circle sun;
+    private Square leftside;
+    private Square rightside;
+    private Square start;
+    private Circle hole;
+    private Person player;
+    private Triangle flag;
+    private Triangle cap;
+    private Triangle stick;
+    private Circle ball;
+    private Square background;
 
     /**
      * Constructor for objects of class Picture
@@ -29,31 +35,78 @@ public class Picture
      */
     public void draw()
     {
-        wall = new Square();
-        wall.moveHorizontal(-140);
-        wall.moveVertical(20);
-        wall.changeSize(120);
-        wall.makeVisible();
+        background = new Square();
+        background.changeSize(1000);
+        background.changeColor("white");
+        background.makeVisible();
+        background.moveHorizontal(-320);
+        background.moveVertical(-150);
         
-        window = new Square();
-        window.changeColor("black");
-        window.moveHorizontal(-120);
-        window.moveVertical(40);
-        window.changeSize(40);
-        window.makeVisible();
+        leftside = new Square();
+        leftside.changeSize(180);
+        leftside.changeColor("green");
+        leftside.makeVisible();
+        leftside.moveHorizontal(-200);
+        leftside.moveVertical(-50);
+        
+        rightside = new Square();
+        rightside.changeSize(180);
+        rightside.changeColor("green");
+        rightside.makeVisible();
+        rightside.moveHorizontal(-20);
+        rightside.moveVertical(-50);
+        
+        start = new Square();
+        start.changeSize(45);
+        start.changeColor("white");
+        start.makeVisible();
+        start.moveHorizontal(-185);
+        start.moveVertical(10);
 
-        roof = new Triangle();  
-        roof.changeSize(60, 180);
-        roof.moveHorizontal(20);
-        roof.moveVertical(-60);
-        roof.makeVisible();
-
-        sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(100);
-        sun.moveVertical(-40);
-        sun.changeSize(80);
-        sun.makeVisible();
+        hole = new Circle();
+        hole.changeSize(10);
+        hole.changeColor("white");
+        hole.makeVisible();
+        hole.moveHorizontal(195);
+        hole.moveVertical(73);
+        
+        player = new Person();
+        player.changeSize(35, 25);
+        player.changeColor("black");
+        player.makeVisible();
+        player.moveHorizontal(-130);
+        player.moveVertical(-50);
+        
+        flag = new Triangle();
+        flag.changeSize(40, 3);
+        flag.changeColor("red");
+        flag.makeVisible();
+        flag.moveHorizontal(230);
+        flag.moveVertical(-10);
+        
+        cap = new Triangle();
+        cap.changeSize(6, 25);
+        cap.changeColor("red");
+        cap.makeVisible();
+        cap.moveHorizontal(-60);
+        cap.moveVertical(-13);
+        
+        
+        stick = new Triangle();
+        stick.changeSize(30, 3);
+        stick.changeColor("yellow");
+        stick.makeVisible();
+        stick.moveHorizontal(-73);
+        stick.moveVertical(0);
+        
+        ball = new Circle();
+        ball.changeSize(5);
+        ball.changeColor("black");
+        ball.makeVisible();
+        ball.moveHorizontal(-90);
+        ball.moveVertical(75);
+        ball.slowMoveHorizontal(287);
+        
     }
 
     /**
@@ -61,12 +114,18 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        if (wall != null)   // only if it's painted already...
+        if (leftside != null)   // only if it's painted already...
         {
-            wall.changeColor("black");
-            window.changeColor("white");
-            roof.changeColor("black");
-            sun.changeColor("black");
+            background.changeColor("black");
+            leftside.changeColor("white");
+            rightside.changeColor("white");
+            start.changeColor("black");
+            hole.changeColor("black");
+            flag.changeColor("black");
+            player.changeColor("white");
+            cap.changeColor("white");
+            stick.changeColor("white");
+            ball.changeColor("white");
         }
     }
 
@@ -75,12 +134,18 @@ public class Picture
      */
     public void setColor()
     {
-        if (wall != null)   // only if it's painted already...
+        if (leftside != null)   // only if it's painted already...
         {
-            wall.changeColor("red");
-            window.changeColor("black");
-            roof.changeColor("green");
-            sun.changeColor("yellow");
+            background.changeColor("white");
+            leftside.changeColor("green");
+            rightside.changeColor("green");
+            start.changeColor("white");
+            hole.changeColor("white");
+            flag.changeColor("red");
+            player.changeColor("black");
+            cap.changeColor("red");
+            stick.changeColor("yellow");
+            ball.changeColor("black");
         }
     }
 }
